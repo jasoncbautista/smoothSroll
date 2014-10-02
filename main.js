@@ -10,10 +10,34 @@ var generateDiv = function(text, index){
     return div;
 };
 
+// TODO: function to search every property for a property
+// Make recursive
+
+var magicFinder = function(targetObject, substringOriginal, soFar){
+    var substring = substringOriginal.toLowerCase();
+    for  (prop in targetObject) {
+        if(Object.prototype.hasOwnProperty.call(targetObject, prop)){
+
+            var propLil = prop.toLowerCase();
+
+            if(propLil.indexOf(substring) >= 0) {
+                console.log("PROP:", prop);
+                console.log("STR:", soFar);
+            }
+
+
+        }
+
+    }
+};
+
 var load = function(){
 
     var div = generateDiv("yo", 0);
     document.body.appendChild(div);
+
+    var realHeight = div.offsetHeight
+    magicFinder(div, "Height", "");
 };
 
 document.onreadystatechange = function(){
@@ -34,3 +58,5 @@ document.onreadystatechange = function(){
 window.onscroll = function(_event){
     console.log(window.pageYOffset);
 }
+
+
