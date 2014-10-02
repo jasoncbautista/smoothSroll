@@ -32,7 +32,8 @@ def get_items(_offset):
             "total": total
         ,   "rows": rows
         ,   "limit": limit
-        ,   "offset": offset + limit
+        ,   "offset": offset 
+        ,   "next_offset": offset + limit
 
     }
     return jsonify(** response)
