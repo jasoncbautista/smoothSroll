@@ -23,7 +23,7 @@ var magicFinder = function(targetObject, substringOriginal, soFar){
             }
 
             // TODO: Need to fix Stack size
-            magicFinder(targetObject[prop], substringOriginal, soFar);
+            //magicFinder(targetObject[prop], substringOriginal, soFar);
 
         }
 
