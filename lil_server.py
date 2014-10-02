@@ -9,7 +9,6 @@ def hello_world():
     return "Hello World"
 
 
-
 @app.route("/get_items/<_offset>", methods=["GET"])
 def get_items(_offset):
 
