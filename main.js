@@ -10,9 +10,6 @@ var generateDiv = function(text, index){
     return div;
 };
 
-// TODO: function to search every property for a property
-// Make recursive
-
 var magicFinder = function(targetObject, substringOriginal, soFar){
     var substring = substringOriginal.toLowerCase();
     for  (prop in targetObject) {
@@ -25,6 +22,8 @@ var magicFinder = function(targetObject, substringOriginal, soFar){
                 console.log("STR:", soFar);
             }
 
+            // TODO: Need to fix Stack size
+            magicFinder(targetObject[prop], substringOriginal, soFar);
 
         }
 
