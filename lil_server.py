@@ -34,8 +34,8 @@ def get_items(_offset):
         ,   "limit": limit
         ,   "offset": offset 
         ,   "next_offset": offset + limit
-
     }
+
     return jsonify(** response)
 
 
