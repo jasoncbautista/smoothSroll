@@ -1,3 +1,4 @@
+import random
 from flask import Flask, jsonify
 
 app = Flask(__name__)
@@ -9,9 +10,10 @@ def hello_world():
 
 
 
-@app.route("/get_items/<offset>")
-def get_items(offset):
+@app.route("/get_items/<_offset>", methods=["GET"])
+def get_items(_offset):
 
+    offset = int(_offset)
     # Temp globals
     total = 500000
     limit = 25
@@ -20,7 +22,7 @@ def get_items(offset):
     for ii in range(offset, offset + limit):
 
         row = {
-            text: str(1) + " --- " + str(random.random())
+            "text": str(ii) + " --- " + str(random.random())
         }
 
         rows.append(row)
@@ -37,4 +39,4 @@ def get_items(offset):
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0', port=5002, debug=True)
