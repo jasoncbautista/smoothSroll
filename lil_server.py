@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, jsonify
 
 app = Flask(__name__)
 
@@ -24,9 +24,16 @@ def get_items(offset):
         }
 
         rows.append(row)
-
     
 
+    response = {
+            "total": total
+        ,   "rows": rows
+        ,   "limit": limit
+        ,   "offset": offset + limit
+
+    }
+    return jsonify(** response)
 
 
 if __name__ == '__main__':
