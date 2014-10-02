@@ -11,12 +11,18 @@ def hello_world():
 
 @app.route("/get_items/<offset>")
 def get_items(offset):
+
+    # Temp globals
+    total = 500000
     limit = 25
     rows  = []
+
     for ii in range(offset, offset + limit):
+
         row = {
             text: str(1) + " --- " + str(random.random())
         }
+
         rows.append(row)
 
     
