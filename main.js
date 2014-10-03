@@ -34,6 +34,14 @@ var magicFinder = function(targetObject, substringOriginal, soFar){
 function itemsCallback (){
     if (this.readyState == 4){
         console.log(this.responseText);
+        var json = JSON.parse(this.responseText)
+
+        for(obj in json.rows){
+            var div = generateDiv(obj.text, 0);
+            document.body.appendChild(div);
+        }
+
+
     }
  }
 
