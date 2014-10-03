@@ -32,14 +32,17 @@ var magicFinder = function(targetObject, substringOriginal, soFar){
 
 // Render
 function itemsCallback (){
-    console.log(this.responseText);
+    if (this.readyState == 4){
+        console.log(this.responseText);
+    }
  }
 
 
 var makeRequest = function(offfset, callback) {
     var req = new XMLHttpRequest();
-    req.onload = callback;
-    req.open("get", "/rest/get_items/" + offfset);
+    req.onreadystatechange = callback;
+    req.open("GET", "/rest/get_items/" + offfset, true);
+    req.send(null);
 }
 
 
