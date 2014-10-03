@@ -37,7 +37,7 @@ function itemsCallback (){
         var json = JSON.parse(this.responseText)
 
         for(obj in json.rows){
-            var div = generateDiv(obj.text, 0);
+            var div = generateDiv(json.rows[obj].text, 0);
             document.body.appendChild(div);
         }
 
@@ -58,8 +58,8 @@ makeRequest(0, itemsCallback);
 
 var load = function(){
 
-    var div = generateDiv("yo", 0);
-    document.body.appendChild(div);
+    //var div = generateDiv("yo", 0);
+    //document.body.appendChild(div);
 
     var realHeight = div.offsetHeight
     magicFinder(div, "Height", "");
