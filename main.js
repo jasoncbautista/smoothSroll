@@ -30,6 +30,21 @@ var magicFinder = function(targetObject, substringOriginal, soFar){
     }
 };
 
+// Render
+function itemsCallback (){
+    console.log(this.responseText);
+ }
+
+
+var makeRequest = function(offfset, callback) {
+    var req = new XMLHttpRequest();
+    req.onload = callback;
+    req.open("get", "/rest/get_items/" + offfset);
+}
+
+
+makeRequest(0, itemsCallback);
+
 var load = function(){
 
     var div = generateDiv("yo", 0);
